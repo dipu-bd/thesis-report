@@ -3,8 +3,9 @@
 
 \begin{document}
 \subsection{Gray Scale Conversion}
-From the 24-bit color value of each pixels $(i, j)$ of the input image, we split the $R$, $G$, $B$ components . Then, 8-bit gray value is calculated using the following formula:
-\begin{equation}
+From the 24-bit color value of each pixels $(i, j)$ of the input image, we split the $R$, $G$, $B$ components . Then, 8-bit gray value is calculated using Equation \ref{eq:GrayEquation}. A sample result is shown in Figure \ref{fig:GraySample}.
+
+\begin{equation}\label{eq:GrayEquation}
 gray(i,j) = 0.59 * R(i,j) + 0.30 * G(i,j) + 0.11 * B(i, j)
 \end{equation}
 
