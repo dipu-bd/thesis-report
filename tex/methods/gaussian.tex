@@ -11,8 +11,8 @@ g(i, j) = \dfrac{\alpha}{2\pi\sigma^2} \cdot e^{\frac{i^2 + j^2}{2\sigma^2}}
 
 \begin{figure} 
 	\centering
-	\includegraphics[width=.8\linewidth]{./img/plot/gauss.jpg}
-	\caption{Applied the Gaussian Blur} 
+	\includegraphics[width=.8\linewidth]{./img/plots/gauss.png}
+	\caption{Gaussian Filter} 
 	\label{fig:GaussianFilterPlot}
 \end{figure}
 
@@ -22,7 +22,7 @@ gauss = cv2.filter2D(sobel, cv2.CV_64F, kernel)
 \end{lstlisting}
 
 As a result we get a nicely blurred image (Figure \ref{fig:GaussianSample}).
-\begin{figure} 
+\begin{figure}
 	\centering
 	\includegraphics[width=.8\linewidth]{./img/sample/stage3.jpg}
 	\caption{Applied the Gaussian Blur} 

@@ -30,10 +30,19 @@ f(\rho W_g) =
 \end{cases}
 \end{equation} 
 
+Figure \ref{fig:WeightDistribution} shows the map of weight function from \ref{eq:WeightFunction}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.8\linewidth]{./img/plots/weight.png}
+	\caption{Weight Distribution} 
+	\label{fig:WeightDistribution}
+\end{figure}
+
 To increase the efficiency of the calculation the entire image is divided into $8 \times 8$ windows each having the size of $60 \times 80$. For each window we calculated weight and mean intensity using {\it Bilinear interpolation}. Also by using {\it numpy} library for matrix manipulation, we could dramatically decrease processing time.
 
 Figure \ref{fig:EnhanceSample} shows the resultant image. The brightness of license plate area has significantly improved.
-\begin{figure} 
+\begin{figure}
 	\centering
 	\includegraphics[width=.8\linewidth]{./img/sample/stage4.jpg}
 	\caption{Enhanced Image} 
