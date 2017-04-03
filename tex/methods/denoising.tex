@@ -6,13 +6,24 @@
 De-noising is done in two parts: Removing the border lines, and removing the small contours. Figure \ref{fig:CleaningStage} shows the effects of this algorithm.
 
 \subsubsection{Border Removal}
-Removing the borders of an image is tough job due to the diversity of plates and their origins. In our methods, we first removed the top, bottom, left and right border using OpenCV's $floodFill$ function. We checked all the pixels of first $20$ rows and applied flood-fill on any non-black pixels. Similarly we check bottom $5$ rows, from left first $12$ columns and from right the first $12$ columns.
+Removing the borders of an image is tough job due to the diversity of plates and their origins. In our methods, we first removed the top, bottom, left and right border using {\it floodFill} function. We checked all the pixels of first $20$ rows and applied flood-fill on any non-black pixels. Similarly we check bottom $5$ rows, from left first $12$ columns and from right the first $12$ columns.
 
 \subsubsection{Contour cleaning}
-Only removing border is not enough to completely clear the plate image. We used contour analysis to blackout the remaining dots in the image that could not possibly be a letter. To find contour, we used $cv2.RETR_EXTERNAL$ mode which only wraps the external area (Otherwise the holes inside numbers and letters would be detected, and it would pose a problem).
+Only removing border is not enough to completely clear the plate image. We used contour analysis to blackout the remaining dots in the image that could not possibly be a letter.
+To find contour, we used \texttt{CV\_RETR\_EXTERNAL} mode which only wraps the external area. (Otherwise the holes inside numbers and letters would be detected, and it would pose a problem).
+\begin{lstlisting}[language=Python]
+    contours = cv2.findContours(img, cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_TC89_KCOS)[1]
+\end{lstlisting}
 
-After some observation, we set the minimum character height to be between $35$ to $height-30$ pixels and width between $35$ to $width-30$. We checked for all contours if it a possible character. If not, we used OpenCV's $fillConvexPoly$ method on $minAreaRect$ of the contour. It nicely fill up the contour with black pixels and hide it without affecting rest of the plate image.
+After some observation, we set the minimum character height to be between $35$ to $height-30$ pixels and width between $35$ to $width-30$. We checked for all contours if it a possible character. If not, we used OpenCV's \texttt{fillConvexPoly} method on \texttt{minAreaRect} of the contour. It nicely fill up the contour with black pixels and hide it without affecting rest of the plate image.
 
+\begin{lstlisting}[language=Python]
+    # hiding small noises
+    rect = cv2.minAreaRect(cnt)
+    box = np.int32(cv2.boxPoints(rect))
+    cv2.fillConvexPoly(img, box, 0)
+\end{lstlisting}
 
 \begin{figure}
 \begin{subfigure}{.5\textwidth}
