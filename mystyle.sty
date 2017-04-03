@@ -2,15 +2,20 @@
 
 % line spacing and paragragh spacing
 \usepackage{setspace}
-\renewcommand{\baselinestretch}{1.5} 
 \usepackage{indentfirst}
-\usepackage{dirtytalk}
 \usepackage{multicol}
 \usepackage{caption} 
-\usepackage{color}
-\usepackage{listings}
 \captionsetup[table]{skip=10pt}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{dirtytalk}
+
+\usepackage{graphicx} %package to manage images
+\graphicspath{{img/}}
+
+\renewcommand{\baselinestretch}{1.5} 
 
 %verbatim centering
 \usepackage{fancyvrb}
@@ -45,7 +50,6 @@
 %\usepackage{tabulary}
 
 %Tikz
-\usepackage[utf8]{inputenc}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{pgfplots}
@@ -106,30 +110,30 @@
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
 
-
-% Colors for code
+%New colors defined below
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
- 
+
+%Code listing style named "mystyle"
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
 }
 
+%"mystyle" code listing set
 \lstset{style=mystyle}

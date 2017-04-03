@@ -61,17 +61,28 @@ We separate our process into several stages. Each stages contains several steps 
 This stage contains a sequence of steps that enhance the plate like regions of an image and output an image that can be used directly for the next stage - plate detection.
 
 \subsection{Rescale}
-By minimizing the size of an image we can reduce processing time dramatically. But reducing image may result in loss of information. From reviews, we decided to use the dimension: $640 \times 480$. We re-scale the input image into this dimension at first step.
+By minimizing the size of an image we can reduce processing time dramatically. But reducing image may result in loss of information. From reviews, we decided to use the dimension: $640 \times 480$. We re-scale the input image into this dimension at first step. Figure \ref{fig:RescaledSample} shows a sample image.
+\begin{figure} \label{fig:RescaledSample}
+	\centering
+	\includegraphics[scale=0.5]{./img/samples/stage0}
+	\caption{A sample input image (rescaled)} 
+\end{figure}
+
 
 \subsection{Gray Scale Conversion}
 From the 24-bit color value of each pixels $(i, j)$ of the input image, we split the $R$, $G$, $B$ components . Then, 8-bit gray value is calculated using the following formula:
 \begin{equation}
 gray(i,j) = 0.59 * R(i,j) + 0.30 * G(i,j) + 0.11 * B(i, j)
 \end{equation}
+\begin{figure} \label{fig:GraySample}
+	\centering
+	\includegraphics[scale=0.5]{./img/samples/stage1}
+	\caption{A sample gray-scale image} 
+\end{figure}
 
 
 \subsection{Vertical Edge Density}
-The vertical {\it Sobel operator} (Equation \ref{eq:Sobel}) is used to calculated the edge density.
+The vertical {\it Sobel operator} (Equation \ref{eq:Sobel}) is used to calculated the edge density. 
 \begin{equation} \label{eq:Sobel}
 h =
   \begin{bmatrix}
@@ -86,20 +97,30 @@ Which we could obtain by using $sobel$ function from OpenCV library:
 sobel = cv2.Sobel(img, cv2.CV_8UC1, 1, 0, ksize=3)
 \end{lstlisting}
 
-Next, we applied a low threshold value to the gradient image. In this case, we used an adaptive threshold technique called {\it Otsu’s Binarization} using an offset value of $85$, which we obtained empirically. 
+Next, we applied a low threshold value to the gradient image. In this case, we used an adaptive threshold technique called {\it Otsu’s Binarization} using an offset value of $85$, which we obtained empirically. Result is shown in Figure \ref{fig:SobelSample}
+\begin{figure} \label{fig:SobelSample}
+	\centering
+	\includegraphics[scale=0.5]{./img/samples/stage2}
+	\caption{After applying Sobel Operator} 
+\end{figure}
 
 \subsection{Gaussian Filter}
 In this step, 2D Gaussian filter is applied to the gradient image from previous step. We used a Gaussian kernel of size $60 \times 60$. To calculate the kernel the formula in Equation \ref{eq:GaussFilter} is used.
-
 \begin{equation} \label{eq:GaussFilter}
 g(i, j) = \dfrac{\alpha}{2\pi\sigma^2} \cdot e^{\frac{i^2 + j^2}{2\sigma^2}}
 \end{equation}
 
-Here, the blur coefficient $\alpha$ and the $\sigma$ are set empirically.
-We used $filter2D$ function to apply convolution of on the gradient image:
+Here, the blur coefficient $\alpha$ and the $\sigma$ are set empirically. We used $filter2D$ function to apply convolution of on the gradient image
 \begin{lstlisting}[language=Python]
 gauss = cv2.filter2D(sobel, cv2.CV_64F, kernel)
 \end{lstlisting}
+
+As a result we get a nicely blurred image (Figure \ref{fig:GaussianSample}).
+\begin{figure} \label{fig:GaussianSample}
+	\centering
+	\includegraphics[scale=0.5]{./img/samples/stage3}
+	\caption{Applied the Gaussian Blur} 
+\end{figure}
 
 \subsection{Image Enhancement}
 We used the Gaussian image to increase the contrast of the image around plate like regions. The formula used is shown in Equation \ref{eq:Enhancement}.
@@ -131,6 +152,12 @@ f(\rho W_g) =
 
 To increase the efficiency of the calculation the entire image is divided into $8 \times 8$ windows each having the size of $60 \times 80$. For each window we calculated weight and mean intensity using {\it Bilinear interpolation}. Also by using {\it numpy} library for matrix manipulation, we could dramatically decrease processing time.
 
+Figure \ref{fig:EnhanceSample} shows the resultant image. The brightness of license plate area has significantly improved.
+\begin{figure} \label{fig:EnhanceSample}
+	\centering
+	\includegraphics[scale=0.5]{./img/samples/stage4}
+	\caption{Enhanced Image} 
+\end{figure}
 
 
 \subsection{Matched Filter}
