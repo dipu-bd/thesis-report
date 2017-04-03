@@ -5,32 +5,8 @@
 
 \subsection{Converting to Binary Image}
 The image from previous stage is need to be converted in binary for convenience. Bangladeshi license plates have two types: white text on black plate for private cars and black text on white plate for public ones. To be accurate, we first converted the image into black and white using two filters: $THRESH_BINARY$ one time and $THRESH_BINARY_INV$ the other. Then compared the ratio of non-zero pixels of each image. The image which has lesser ratio, most probably is selected as the expected binary image. 
-\begin{lstlisting}[language=Python]
-    # normal binary threshold
-    bnw1 = cv2.threshold(np.uint8(img), cfg.BNW_THRESH, 255,
-                         cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 
-    # inverse binary threshold
-    bnw2 = cv2.threshold(np.uint8(img), cfg.BNW_THRESH, 255,
-                         cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-
-    # calculate ratio of non-zero pixels
-    row, col = img.shape
-    area = row * col
-    ratio1 = cv2.countNonZero(bnw1) / area
-    ratio2 = cv2.countNonZero(bnw2) / area
-
-    # return image with lower ratio
-    bnw = bnw2
-    if ratio1 < ratio2:
-        bnw = bnw1
-    # end if
-    bnw[bnw <= 127] = 0
-    bnw[bnw > 127] = 255
-    return bnw
-\end{lstlisting}
-
-Figure \ref{fig:BlackAndWhite} shows the conversion between black and white images using the above algorithm for different types of license plates.
+Figure \ref{fig:BlackAndWhite} shows the conversion to binary images using the above algorithm for different types of license plates.
 
 \begin{figure}
 \begin{subfigure}{.5\textwidth}

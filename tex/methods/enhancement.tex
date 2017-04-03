@@ -4,9 +4,11 @@
 \begin{document}
 \subsection{Image Enhancement}
 We used the Gaussian image to increase the contrast of the image around plate like regions. The formula used is shown in Equation \ref{eq:Enhancement}.
+
 \begin{equation} \label{eq:Enhancement}
 I' = f(\rho W_g) (I - \bar{I}) + \bar{I}
 \end{equation}
+
 In the equation \ref{eq:Enhancement},\\
 $\bar{I}$ = the mean intensity. \\
 $I$ = the intensity of the original image. \\
@@ -14,7 +16,6 @@ $I'$ = the new enhanced image. \\
 $W_g$ = normalized Gaussian image. \\ 
 $\rho W$ = the standard deviation of Gaussian image, and \\
 $f$ = the weighting function defined in Equation \ref{eq:WeightFunction}.
-
 \begin{equation} \label{eq:WeightFunction}
 f(\rho W_g) = 
 \begin{cases} 
@@ -30,10 +31,18 @@ f(\rho W_g) =
 \end{cases}
 \end{equation} 
 
+Figure \ref{fig:WeightDistribution} shows the map of weight function from \ref{eq:WeightFunction}.
+\begin{figure}
+	\centering
+	\includegraphics[width=.8\linewidth]{./img/plots/weight.png}
+	\caption{Weight function against normalized edge density} 
+	\label{fig:WeightDistribution}
+\end{figure}
+
 To increase the efficiency of the calculation the entire image is divided into $8 \times 8$ windows each having the size of $60 \times 80$. For each window we calculated weight and mean intensity using {\it Bilinear interpolation}. Also by using {\it numpy} library for matrix manipulation, we could dramatically decrease processing time.
 
-Figure \ref{fig:EnhanceSample} shows the resultant image. The brightness of license plate area has significantly improved.
-\begin{figure} 
+Figure \ref{fig:EnhanceSample} shows the resulting image. The brightness of license plate area has significantly improved.
+\begin{figure}
 	\centering
 	\includegraphics[width=.8\linewidth]{./img/sample/stage4.jpg}
 	\caption{Enhanced Image} 
