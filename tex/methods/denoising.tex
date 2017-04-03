@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+\subsection{Denoising}
+
+\subsubsection{Border Removal}
+Removing the borders of an image is tough job due to the diversity of plates and their origins. In our methods, we first removed the top, bottom, left and right border using OpenCV's $floodFill$ function. We checked all the pixels of first $20$ rows and applied flood-fill on any non-black pixels. Similarly we check bottom $5$ rows, from left first $12$ columns and from right the first $12$ columns.
+
+\subsubsection{Contour cleaning}
+Only removing border is not enough to completely clear the plate image. We used contour analysis to blackout the remaining dots in the image that could not possibly be a letter. To find contour, we used $cv2.RETR_EXTERNAL$ mode which only wraps the external area (Otherwise the holes inside numbers and letters would be detected, and it would pose a problem).
+
+After some observation, we set the minimum character height to be between $35$ to $height-30$ pixels and width between $35$ to $width-30$. We checked for all contours if it a possible character. If not, we used OpenCV's $fillConvexPoly$ method on $minAreaRect$ of the contour. It nicely fill up the contour with black pixels and hide it without affecting rest of the plate image.
+
+
+Figure \ref{fig:CleaningStage} shows the effects of this algorithm.
+\begin{figure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage11.jpg}
+  \caption{Noisy image}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage12.jpg}
+  \caption{Removed borders}
+\end{subfigure}
+\begin{subfigure}{0.9\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage13.jpg}
+  \caption{Clean image}
+\end{subfigure}
+\caption{After applying Border removal and contour cleaning}
+\label{fig:CleaningStage}
+\end{figure}
+
+\end{document}

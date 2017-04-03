@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+\subsection{Contour Analysis}
+Canny edge detection works perfectly for most cases and provides an easy to detect contours around plate borders. After passing the canny image to the OpenCV's $findContours$ function, we get a set of contours. For each of these contours several parameters are checked before selecting a contours as a possible plate.
+
+In this steps, some of the estimated candidate from previous stages fall out. In Figure \ref{fig:ContourImage}, all detected the contours are highlighted.
+\begin{figure}
+    \centering
+    \includegraphics[width=.7\linewidth]{./img/sample/stage9.jpg}
+    \caption{Only remaining candidate after contour analysis}
+    \label{fig:ContourImage}
+\end{figure}
+
+
+
+\subsubsection{Width and Height}
+The width and height of the detected contour should be above a minimum margin to be recognizable by the OCR. We set the minimum width = $30$ pixels and minimum height = $75$ pixels for estimated plate.
+
+\subsubsection{Area Ratio}
+Next we check if the area of the contour is greater than the $10\%$ of the entire image. Remember, we got this image by localizing the plate like regions in pre-processing stage. A possible plate should not have the area below $10\%$ of the entire image.
+\begin{equation}
+area\_ratio = \dfrac{contour\_area}{image\_area }
+\end{equation}
+
+\subsubsection{Aspect Ratio}
+Equation \ref{eq:AspectRatio} shows the calculation of aspect ratio of the contour image. From review and observations, we set the minimum value of aspect ratio to $0.3$ and maximum to $0.6$.
+\begin{equation} \label{eq:AspectRatio}
+aspect\_ratio = \dfrac{contour\_height}{contour\_width}
+\end{equation}
+
+\subsubsection{Rotation}
+The rotation can be found by the $minAreaRect$ function from OpenCV. 
+\begin{lstlisting}[language=Python]
+angle = cv2.minAreaRect(cnt)[0]
+\end{lstlisting}
+If $10 \leq |angle| \leq 80$ we skipped the contour. Because otherwise the contour will be too much skewed to be recognized by any OCR.
+
+\end{document}
