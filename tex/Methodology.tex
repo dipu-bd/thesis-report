@@ -64,7 +64,7 @@ This stage contains a sequence of steps that enhance the plate like regions of a
 By minimizing the size of an image we can reduce processing time dramatically. But reducing image may result in loss of information. From reviews, we decided to use the dimension: $640 \times 480$. We re-scale the input image into this dimension at first step. Figure \ref{fig:RescaledSample} shows a sample image.
 \begin{figure} 
 	\centering
-	\includegraphics[scale=0.5]{./img/sample/stage0.jpg}
+	\includegraphics[width=.8\linewidth]{./img/sample/stage0.jpg}
 	\caption{A sample input image (rescaled)}
 	\label{fig:RescaledSample}
 \end{figure}
@@ -77,7 +77,7 @@ gray(i,j) = 0.59 * R(i,j) + 0.30 * G(i,j) + 0.11 * B(i, j)
 \end{equation}
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{./img/sample/stage1.jpg}
+	\includegraphics[width=.8\linewidth]{./img/sample/stage1.jpg}
 	\caption{A sample gray-scale image} 
 	 \label{fig:GraySample}
 \end{figure}
@@ -102,7 +102,7 @@ sobel = cv2.Sobel(img, cv2.CV_8UC1, 1, 0, ksize=3)
 Next, we applied a low threshold value to the gradient image. In this case, we used an adaptive threshold technique called {\it Otsu’s Binarization} using an offset value of $85$, which we obtained empirically. Result is shown in Figure \ref{fig:SobelSample}
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{./img/sample/stage2.jpg}
+	\includegraphics[width=.8\linewidth]{./img/sample/stage2.jpg}
 	\caption{After applying Sobel Operator} 
 	\label{fig:SobelSample}
 \end{figure}
@@ -121,7 +121,7 @@ gauss = cv2.filter2D(sobel, cv2.CV_64F, kernel)
 As a result we get a nicely blurred image (Figure \ref{fig:GaussianSample}).
 \begin{figure} 
 	\centering
-	\includegraphics[scale=0.5]{./img/sample/stage3.jpg}
+	\includegraphics[width=.8\linewidth]{./img/sample/stage3.jpg}
 	\caption{Applied the Gaussian Blur} 
 	\label{fig:GaussianSample}
 \end{figure}
@@ -159,7 +159,7 @@ To increase the efficiency of the calculation the entire image is divided into $
 Figure \ref{fig:EnhanceSample} shows the resultant image. The brightness of license plate area has significantly improved.
 \begin{figure} 
 	\centering
-	\includegraphics[scale=0.5]{./img/sample/stage4.jpg}
+	\includegraphics[width=.8\linewidth]{./img/sample/stage4.jpg}
 	\caption{Enhanced Image} 
 	\label{fig:EnhanceSample}
 \end{figure}
@@ -208,29 +208,29 @@ This filtering process provides a strong response at plate-like regions (Figure 
 \begin{figure}
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{./img/sample/stage5.4.jpg}
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5-4.jpg}
   \caption{After applying the mixture model}
   \label{fig:OriginalMixtureModel}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{./img/sample/stage5.3.jpg}
-  \caption{Gaussian blur on previous image}
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5-3.jpg}
+  \caption{Gaussian blur on \ref{fig:OriginalMixtureModel}}
   \label{fig:BlurredMixtureModel}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{./img/sample/stage5.1.jpg}
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5-1.jpg}
   \caption{After applying adaptive threshold}
   \label{fig:ThresholdMixtureModel}
 \end{subfigure}
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{./img/sample/stage5.2.jpg}
-  \caption{A see-through view of the threshold with main image}
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5-2.jpg}
+  \caption{A see-through view of \ref{fig:ThresholdMixtureModel} with main image}
   \label{fig:GlassViewMixtureModel}
 \end{subfigure}
-\caption{Images found after applying mixture model.}
+\caption{Images after applying mixture model.}
 \label{fig:MixtureModel}
 \end{figure}
 
