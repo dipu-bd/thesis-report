@@ -9,7 +9,7 @@ In this steps, some of the estimated candidate from previous stages fall out. In
 \begin{figure}
     \centering
     \includegraphics[width=.7\linewidth]{./img/sample/stage9.jpg}
-    \caption{Only remaining candidate after contour analysis}
+    \caption{Two rectangles around the plate marks the detected contour regions.}
     \label{fig:ContourImage}
 \end{figure}
 
@@ -31,7 +31,7 @@ aspect\_ratio = \dfrac{contour\_height}{contour\_width}
 \end{equation}
 
 \subsubsection{Rotation}
-The rotation can be found by the $minAreaRect$ function from OpenCV. 
+The rotation can be found by the {\it minAreaRect} function from OpenCV. 
 \begin{lstlisting}[language=Python]
 angle = cv2.minAreaRect(cnt)[0]
 \end{lstlisting}
