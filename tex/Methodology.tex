@@ -26,10 +26,9 @@ For testing and analysis we used a separate implementation. In this implementati
 
 
 \section{Overview}
-
 We separate our process into several stages. Each stages contains several steps in it. An overview of all stags in our process is shown in Figure \ref{fig:ProcessOverview}. The process will be described in more details in the following sections.
 
-\begin{figure} \label{fig:ProcessOverview}
+\begin{figure} 
 	\centering
     {\small
       A flow chart will be here containing:\\
@@ -40,6 +39,7 @@ We separate our process into several stages. Each stages contains several steps 
       5. Plate recognition
     }
 	\caption{An overview of the plate detection procedure.} 
+	\label{fig:ProcessOverview}
 \end{figure}
 
 \begin{description}
@@ -62,10 +62,11 @@ This stage contains a sequence of steps that enhance the plate like regions of a
 
 \subsection{Rescale}
 By minimizing the size of an image we can reduce processing time dramatically. But reducing image may result in loss of information. From reviews, we decided to use the dimension: $640 \times 480$. We re-scale the input image into this dimension at first step. Figure \ref{fig:RescaledSample} shows a sample image.
-\begin{figure} \label{fig:RescaledSample}
+\begin{figure} 
 	\centering
-	\includegraphics[scale=0.5]{./img/samples/stage0}
-	\caption{A sample input image (rescaled)} 
+	\includegraphics[scale=0.5]{./img/sample/stage0.jpg}
+	\caption{A sample input image (rescaled)}
+	\label{fig:RescaledSample}
 \end{figure}
 
 
@@ -74,10 +75,11 @@ From the 24-bit color value of each pixels $(i, j)$ of the input image, we split
 \begin{equation}
 gray(i,j) = 0.59 * R(i,j) + 0.30 * G(i,j) + 0.11 * B(i, j)
 \end{equation}
-\begin{figure} \label{fig:GraySample}
+\begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{./img/samples/stage1}
+	\includegraphics[scale=0.5]{./img/sample/stage1.jpg}
 	\caption{A sample gray-scale image} 
+	 \label{fig:GraySample}
 \end{figure}
 
 
@@ -98,10 +100,11 @@ sobel = cv2.Sobel(img, cv2.CV_8UC1, 1, 0, ksize=3)
 \end{lstlisting}
 
 Next, we applied a low threshold value to the gradient image. In this case, we used an adaptive threshold technique called {\it Otsu’s Binarization} using an offset value of $85$, which we obtained empirically. Result is shown in Figure \ref{fig:SobelSample}
-\begin{figure} \label{fig:SobelSample}
+\begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{./img/samples/stage2}
+	\includegraphics[scale=0.5]{./img/sample/stage2.jpg}
 	\caption{After applying Sobel Operator} 
+	\label{fig:SobelSample}
 \end{figure}
 
 \subsection{Gaussian Filter}
@@ -116,10 +119,11 @@ gauss = cv2.filter2D(sobel, cv2.CV_64F, kernel)
 \end{lstlisting}
 
 As a result we get a nicely blurred image (Figure \ref{fig:GaussianSample}).
-\begin{figure} \label{fig:GaussianSample}
+\begin{figure} 
 	\centering
-	\includegraphics[scale=0.5]{./img/samples/stage3}
+	\includegraphics[scale=0.5]{./img/sample/stage3.jpg}
 	\caption{Applied the Gaussian Blur} 
+	\label{fig:GaussianSample}
 \end{figure}
 
 \subsection{Image Enhancement}
@@ -153,10 +157,11 @@ f(\rho W_g) =
 To increase the efficiency of the calculation the entire image is divided into $8 \times 8$ windows each having the size of $60 \times 80$. For each window we calculated weight and mean intensity using {\it Bilinear interpolation}. Also by using {\it numpy} library for matrix manipulation, we could dramatically decrease processing time.
 
 Figure \ref{fig:EnhanceSample} shows the resultant image. The brightness of license plate area has significantly improved.
-\begin{figure} \label{fig:EnhanceSample}
+\begin{figure} 
 	\centering
-	\includegraphics[scale=0.5]{./img/samples/stage4}
+	\includegraphics[scale=0.5]{./img/sample/stage4.jpg}
 	\caption{Enhanced Image} 
+	\label{fig:EnhanceSample}
 \end{figure}
 
 
@@ -168,30 +173,25 @@ h(x, y) =
 \begin{cases} 
 	A.exp \left(
     	\dfrac{ -\left(x - \dfrac{m}{6} \right)^2 }
-        	{ 0.2 \sigma_x^2 } \right),                          
-            
+        	{ 0.2 \sigma_x^2 } \right),                                      
     	& \mbox{for } 
         	0 \leq x \leq \dfrac{m}{3}, 
             0 \leq y \leq n     
     \\ \vspace{0.2cm}
-    
     B.exp \left( 
     	\dfrac{ -\left(x - 
         			\left( \dfrac{m}{3} + \dfrac{m}{6} \right) 
                 \right)^2 }
         	{ 2 \sigma_x^2 } \right),                
-    	
-        & \mbox{for } 
+        & \mbox{for }
         	\dfrac{m}{3} \leq x \leq 2\dfrac{m}{6}, 
         	0 \leq y \leq n 
     \\ \vspace{0.2cm}
-        
     A.exp \left( 
     	\dfrac{ -\left(x - 
         			\left( 2\dfrac{m}{3} + \dfrac{m}{6} \right) 
                 \right)^2 }
         	{ 0.2 \sigma_x^2 } \right),
-            
     	& \mbox{for } 
         	2\dfrac{m}{3} \leq x \leq m, 
             0 \leq y \leq n         
@@ -203,7 +203,36 @@ In the Equation \ref{eq:MixtureModel},
 $A$ and $B$ are coefficients of the mixture model. These parameters are set empirically following the condition: $A > 0$ and $B < 0$. 
 The symbol $\sigma_x$ is the variance of the main lobe toward x direction. 
 
-This filtering process provides a strong response at plate-like regions. The result is compared against a predefined threshold value, which is around $80\%$ of the maximum intensity. We call this process as smoothing, and the threshold value as {\it smoothing cutoff}.
+This filtering process provides a strong response at plate-like regions (Figure \ref{fig:OriginalMixtureModel}). The result is compared against a predefined threshold value, which is around $80\%$ of the maximum intensity. We call this process as smoothing, and the threshold value as {\it smoothing cutoff}.
+
+\begin{figure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5.4.jpg}
+  \caption{After applying the mixture model}
+  \label{fig:OriginalMixtureModel}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5.3.jpg}
+  \caption{Gaussian blur on previous image}
+  \label{fig:BlurredMixtureModel}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5.1.jpg}
+  \caption{After applying adaptive threshold}
+  \label{fig:ThresholdMixtureModel}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage5.2.jpg}
+  \caption{A see-through view of the threshold with main image}
+  \label{fig:GlassViewMixtureModel}
+\end{subfigure}
+\caption{Images found after applying mixture model.}
+\label{fig:MixtureModel}
+\end{figure}
 
 
 \subsection{Plate and regions extraction}
@@ -218,9 +247,10 @@ This step extracts the license plate and its bounding regions primarily. This do
 \section{Plate Detection}
 This section describes the procedure to localize the license plate using the outputs from preprocessing stage. 
 
-\begin{figure} \label{fig:DetectionMethod}
+\begin{figure} 
 	\centering    
 	\caption{An overview of the plate detection procedure.} 
+	\label{fig:DetectionMethod}
 \end{figure}
 
 \subsection{Edge Analysis}
