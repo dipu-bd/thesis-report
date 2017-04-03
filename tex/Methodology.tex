@@ -397,9 +397,9 @@ For convenience, the extracted plate image is rescaled into a dimension of $500 
 
 
 \subsection{Converting to Black and White}
-The image from previous stage is need to be converted in Black and White for convenience. But Bangladeshi license plate has two types of plates. White text on black plate for private cars and black text on white plate for public ones. To be accurate we first converted the image into black and white using two filters: `THRESH_BINARY` one time and `THRESH_BINARY_INV` the other. Then compared the ratio of non-zero pixels of each image. The image which has lesser mean most probably is the black and white image. 
+The image from previous stage is need to be converted in Black and White for convenience. But Bangladeshi license plate has two types of plates. White text on black plate for private cars and black text on white plate for public ones. To be accurate we first converted the image into black and white using two filters: $THRESH_BINARY$ one time and $THRESH_BINARY_INV$ the other. Then compared the ratio of non-zero pixels of each image. The image which has lesser mean most probably is the black and white image. 
 \begin{lstlisting}[language=Python]
-# normal binary threshold
+    # normal binary threshold
     bnw1 = cv2.threshold(np.uint8(img), cfg.BNW_THRESH, 255,
                          cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
 
@@ -423,15 +423,62 @@ The image from previous stage is need to be converted in Black and White for con
     return bnw
 \end{lstlisting}
 
-Figure 
+Figure \ref{fig:BlackAndWhite} shows the conversion between black and white images using the above algorithm for different types of license plates.
 
-
+\begin{figure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/bnw-1.jpg}
+  \caption{A private license plate}
+  \label{fig:PrivatePlate}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/bnw-2.jpg}
+  \caption{Black and white image of \ref{fig:PrivatePlate}}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/bnw-3.jpg}
+  \caption{A public license plate}
+  \label{fig:PublicPlate}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/bnw-4.jpg}
+  \caption{Black and white image of \ref{fig:PublicPlate}}
+\end{subfigure}
+\caption{Black and white conversion of two types of image}
+\label{fig:BlackAndWhite}
+\end{figure}
 
 \subsection{Border removal}
-\subsection{More processing}
-\subsection{Extract character contours}
-\subsection{Reduce bad contours}
-\subsection{Validate estimated plate}
+Removing the borders of an image is tough job due to the diversity of plates and their origins. In our methods, we first removed the top, bottom, left and right border using OpenCV's $floodFill$ function. We checked all the pixels of first $20$ rows and applied flood-fill on any non-black pixels. Similarly we check bottom $5$ rows, from left first $12$ columns and from right the first $12$ columns.
+
+\subsection{More De-noising}
+Only removing border is not enough to completely clear the plate image. We used contour analysis to blackout the remaining dots in the image that could not possibly be a letter. 
+
+Figure 
+
+\begin{figure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage11.jpg}
+  \caption{Noisy image}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./img/sample/stage12.jpg}
+  \caption{Clean image}
+\end{subfigure}
+\caption{After applying Border removal and De-noising}
+\label{fig:CleaningStage}
+\end{figure}
+
+
+\section{Segmentation}
+\subsection{Horizontal Segmentation}
+\subsection{Vertical Segmentation}
 
 \section{Alternative Procedure}
 \subsection{Find plate in part of the frame (ROI)}
