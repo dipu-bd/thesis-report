@@ -3,7 +3,45 @@
 
 \begin{document}
 \section{Segmentation}
+The goal of this stage is to separate all characters into different image to send them to OCR for recognition. We used horizontal and vertical projections in this step.
+
+
 \subsection{Horizontal Segmentation}
+Horizontal projection is done my taking mean of all columns across the rows of the image. Figure \ref{fig:HorizontalProjection} shows a graph of mean values across the rows. To calculate this mean we followed the formula from Equation \ref{eq:HorizontalProjection}.
+
+\begin{equation} \label{eq:HorizontalProjection}
+H = \sum^{height}_{i=1}{\dfrac{ \sum^{width}_{j=1}{ I_{ij} } }{ width } }
+\end{equation}
+
+\begin{figure}
+\centering
+{\it include some graphics }
+\caption{Horizontal projection of a plate.}
+\label{fig:HorizontalProjection}
+\end{figure}
+
+We set the cutoff line to be $\geq 1$. and separated the entire plate into two segments (Showing in Figure \ref{fig:HorizontalSegments}. 
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.9\textwidth}
+  \centering
+  %\includegraphics[width=.8\linewidth]{./img/sample/stage13.jpg}
+  \caption{Upper Segment}
+\end{subfigure}
+\begin{subfigure}{0.9\textwidth}
+  \centering
+  %\includegraphics[width=.8\linewidth]{./img/sample/stage13.jpg}
+  \caption{Lower Segment}
+\end{subfigure}
+{\it include two horizontal segments }
+\caption{Horizontal segments of a plate.}
+\label{fig:HorizontalSegments}
+\end{figure}
+
+
+
+
 \subsection{Vertical Segmentation}
 
 \end{document}
