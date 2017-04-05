@@ -8,7 +8,7 @@ We separate our process into several stages. Each stages contains several steps 
 
 \begin{figure} 
 	\centering
-	\includegraphics[width=0.8\linewidth]{./img/plots/overview}
+	\includegraphics[width=0.65\linewidth]{./img/plots/overview}
 	\caption{An overview of the plate detection procedure.} 
 	\label{fig:ProcessOverview}
 \end{figure}
@@ -18,7 +18,7 @@ We separate our process into several stages. Each stages contains several steps 
 \item [Preprocessing] stage applies several operations on input image to convert it into an image suitable for feature analysis for later stages. In our case, it also outputs general location of the plate.
 \item [Plate Detection] analyses all plate like locations, and extract plates from them. Also it cleans the plate for segmentation.
 \item [Segmentation] step is for splitting the characters from the plate. It is done so that the characters can be recognized by the OCR.
-\item [Plate recognition] uses an OCR system to recognize individual characters and text images.
+\item [Character Recognition] uses an OCR system to recognize individual characters and text images.
 \end{description}
 
 \end{document}

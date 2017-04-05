@@ -7,18 +7,7 @@ The goal of this stage is to separate all characters into different image to sen
 
 
 \subsection{Horizontal Segmentation}
-Horizontal projection is done my taking mean of all columns across the rows of the image. Figure \ref{fig:HorizontalProjection} shows a graph of mean values across the rows. To calculate this mean we followed the formula from Algorithm \ref{eq:HorizontalProjection}. We set the cutoff line to be $\geq 1$. and separated the entire plate into two segments. 
-
-\begin{algorithm}
-  \begin{algorithmic}
-    \For{\texttt{i:=1 to height}}
-        \State $P_i = \dfrac{ \sum^{width}_{i=1}{ I_{ij} } }{ width }$
-    \EndFor
-  \end{algorithmic}
-  \caption{Horizontal projection algorithm}
-  \label{eq:HorizontalProjection}
-\end{algorithm}
-
+Horizontal projection is done my taking mean of all columns across the rows of the image. Figure \ref{fig:HorizontalProjection} shows a graph of mean values across the rows.
 \begin{figure}
 \centering
 \begin{subfigure}{0.9\textwidth}
@@ -35,11 +24,21 @@ Horizontal projection is done my taking mean of all columns across the rows of t
 \label{fig:HorizontalProjection}
 \end{figure}
 
+ To calculate this mean we followed the formula from Algorithm \ref{eq:HorizontalProjection}. We set the cutoff line to be $\geq 1$. and separated the entire plate into two segments. 
+\begin{algorithm}
+  \begin{algorithmic}
+    \For{\texttt{i:=1 to height}}
+        \State $P_i = \dfrac{ \sum^{width}_{i=1}{ I_{ij} } }{ width }$
+    \EndFor
+  \end{algorithmic}
+  \caption{Horizontal projection algorithm}
+  \label{eq:HorizontalProjection}
+\end{algorithm}
+
 
 
 \subsection{Vertical Segmentation}
-We calculated the vertical projection using similar algorithm (Algorithm \ref{eq:VerticalProjection}). The result of the projection is shown in Figure \ref{fig:VerticalProjection}.
-
+We calculated the vertical projection using similar algorithm (Algorithm \ref{eq:VerticalProjection}). 
 \begin{algorithm}
   \begin{algorithmic}
     \For{\texttt{j:=1 to width}}
@@ -50,6 +49,7 @@ We calculated the vertical projection using similar algorithm (Algorithm \ref{eq
   \label{eq:VerticalProjection}
 \end{algorithm}
 
+The result of the projection is shown in Figure \ref{fig:VerticalProjection}.
 \begin{figure}
 \centering
 \begin{subfigure}{0.9\textwidth}
@@ -67,9 +67,7 @@ We calculated the vertical projection using similar algorithm (Algorithm \ref{eq
 \end{figure}
 
 
-
 As a result of this segmentation process we could successfully split all characters from the image. Some samples are shown in Figure \ref{fig:SegmentedSamples}.
-
 \begin{figure}
 \centering
 \begin{subfigure}{0.40\textwidth}
