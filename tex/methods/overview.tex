@@ -8,24 +8,17 @@ We separate our process into several stages. Each stages contains several steps 
 
 \begin{figure} 
 	\centering
-    {\small
-      A flow chart will be here containing:\\
-      1. Input Image\\
-      2. Preprocessing\\
-      3. Plate localization\\
-      4. Region analysis\\
-      5. Plate recognition
-    }
+	\includegraphics[width=0.8\linewidth]{./img/plots/overview}
 	\caption{An overview of the plate detection procedure.} 
 	\label{fig:ProcessOverview}
 \end{figure}
 
 \begin{description}
 \item [Input Image] is a 24-bit colored image with red, green and blue channels.
-\item [Preprocessing] stage applies several operations on input image to convert it into an image suitable for feature analysis for later stages.
-\item [Plate detection] analyses content of the image to identify and extract the plate like regions.
-\item [Region analysis] cleans the extracted plate (removing borders, noise etc), and segments the plate into characters. Also removes bad estimations.
-\item [Plate recognition] makes the image ready for {\it Tesseract}.
+\item [Preprocessing] stage applies several operations on input image to convert it into an image suitable for feature analysis for later stages. In our case, it also outputs general location of the plate.
+\item [Plate Detection] analyses all plate like locations, and extract plates from them. Also it cleans the plate for segmentation.
+\item [Segmentation] step is for splitting the characters from the plate. It is done so that the characters can be recognized by the OCR.
+\item [Plate recognition] uses an OCR system to recognize individual characters and text images.
 \end{description}
 
 \end{document}
