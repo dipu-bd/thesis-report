@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+
+\subsection{Neural Network Design}
+A three layer feed forward supervised network is designed. The input layers has 25 neuron, taking the 25 extracted features from the previous step. 
+
+
+\subsection{Training Process}
+Due to the diversity and complexity of Bangla letters this stage is very challenging. But the Tesseract OCR needs to be trained properly before being able to recognize the license plate characters.
+
+\subsection{Collecting training data}
+The training database should have several images for each set of license plate characters, with the combination of various fonts and positions of the characters. In detected license plate, it is well possible for the characters to be rotated or skewed in more than 15 degrees. We used original character segments from the previous steps and as well as many auto-generated characters with different fonts, angles, and rotation. 
+
+After the training database is collected, we had to convert all of the images into same format. We used ImageMagick to convert the training document to {\it tif} format. After formatting all the documents, we named had to name them properly. 
+
+\subsection{Training the Tesseract OCR}
+We run the python module for Tesseract OCR over the training dataset once it is ready. 
+
+
+
+
+\end{document}

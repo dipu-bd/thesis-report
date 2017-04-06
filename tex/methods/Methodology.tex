@@ -6,30 +6,35 @@
 \chapter{Methodology}
 This chapter describes our process to detect license plate given an input image, and separation of the individual numbers and character sequence from detected license plate. The input image may come from variety of sources. We have put on a validation method to detect if there is actually a license plate in the input image.
 
-  \input{./tex/methods/implementation.tex}
-  \input{./tex/methods/overview.tex}
+  \input{./tex/methods/implementation}
+  \input{./tex/methods/overview}
 
 \section{Preprocessing}
 This stage contains a sequence of steps that enhance the plate like regions of an image and output an image that can be used directly for the next stage - plate detection.
 
-  \input{./tex/methods/rescaling.tex}
-  \input{./tex/methods/grayscale.tex}
-  \input{./tex/methods/sobelEdges.tex}
-  \input{./tex/methods/gaussian.tex}
-  \input{./tex/methods/enhancement.tex}
-  \input{./tex/methods/matchedFilter.tex}
-  \input{./tex/methods/locatePlate.tex}
+  \input{./tex/methods/rescaling}
+  \input{./tex/methods/grayscale}
+  \input{./tex/methods/sobelEdges}
+  \input{./tex/methods/gaussian}
+  \input{./tex/methods/enhancement}
+  \input{./tex/methods/matchedFilter}
+  \input{./tex/methods/locatePlate}
 
 \section{Plate Detection}
 This section describes the procedure to localize the license plate using the outputs from preprocessing stage. 
-  \input{./tex/methods/cannyEdges.tex}
-  \input{./tex/methods/contourAnalysis.tex}
-  \input{./tex/methods/extraction.tex}
-  \input{./tex/methods/binary.tex}
-  \input{./tex/methods/denoising.tex}
+  \input{./tex/methods/cannyEdges}
+  \input{./tex/methods/contourAnalysis}
+  \input{./tex/methods/extraction}
+  \input{./tex/methods/binary}
+  \input{./tex/methods/denoising}
 
-\input{./tex/methods/segmentation.tex}
+\input{./tex/methods/segmentation}
 
-\input{./tex/methods/recognition.tex}
+
+\section{Character Recognition}
+The character recognition is the final and most crucial part of the automated system. We decided to go with a straight-forward approach to implement a Multi-Layer Perceptron model to recognize characters. An MLP or Multi-Layer Perceptron is a Neural Network model that has only three layers. The input layer, one hidden layer and one output layer.
+
+  \input{./tex/methods/featureExtraction}
+  \input{./tex/methods/neuralNet}
 
 \end{document}
