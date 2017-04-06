@@ -3,11 +3,13 @@
 
 \begin{document}
 
-\section{Character Recognition}
-The character recognition is the final and most crucial part of the automated system. We decided to go with a straight-forward approach to implement a Multi-Layer Perceptron model to recognize characters. An MLP or Multi-Layer Perceptron is a Neural Network model that has only three layers. The input layer, one hidden layer and one output layer.
 
 \subsection{Feature Extraction}
 We have extracted 27 most basic features that shall help us to identify a character. We For each segmented characters we extracted same amount of features and passed it to the input of neural network for classification. Our selecting of feature effectively reduced the number of computations and made the system more efficient. We shall describe our approach to extract features here in brief.
+
+\subsection{Converting to Normalized image}
+First we convert the image into normalized binary image, which has only two values- 1 for on-character pixels, and 0 for background pixels.
+
 \subsubsection{Feature 1 and 2}
 There is a function in {\it numpy} library called {\it count\_nonzero} that counts the non-black pixels of the image. We used it to count the total non-black pixels of the initial image. This is our second feature.
 \begin{lstlisting}[language=Python]
@@ -106,34 +108,10 @@ feature[27] = \dfrac{1}{total\_pixels} \times \sum_{y}{\sum_{x}{ \sqrt{(x-center
 
 \begin{figure}
 \centering
-\includegraphics[width=0.8\linewidth]{./img/feature/dist}
+\includegraphics[width=0.9\linewidth]{./img/feature/dist}
 \caption{Distances of non-black pixels from center.}
 \label{fig:FeatureDist}
 \end{figure}
-
-
-
-
-
-
-
-
-\subsection{Neural Network Design}
-A three layer feed forward supervised network is designed. The input layers has 25 neuron, taking the 25 extracted features from the previous step. 
-
-
-\subsection{Training Process}
-Due to the diversity and complexity of Bangla letters this stage is very challenging. But the Tesseract OCR needs to be trained properly before being able to recognize the license plate characters.
-
-\subsection{Collecting training data}
-The training database should have several images for each set of license plate characters, with the combination of various fonts and positions of the characters. In detected license plate, it is well possible for the characters to be rotated or skewed in more than 15 degrees. We used original character segments from the previous steps and as well as many auto-generated characters with different fonts, angles, and rotation. 
-
-After the training database is collected, we had to convert all of the images into same format. We used ImageMagick to convert the training document to {\it tif} format. After formatting all the documents, we named had to name them properly. 
-
-\subsection{Training the Tesseract OCR}
-We run the python module for Tesseract OCR over the training dataset once it is ready. 
-
-
 
 
 \end{document}
