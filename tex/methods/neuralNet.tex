@@ -4,7 +4,7 @@
 \begin{document}
 
 \subsection{Neural Network Design}
-A three-layers feed forward supervised network is designed to suit the purpose. The input layers has 27 neurons, taking the 27 extracted features from the previous step. We used 40 neurons in output layer, because it has 40 different output as shown in \ref{table:OutputTypes}. In the hidden layer we have 180 neurons connecting input and output layers (including bias).
+A three-layers feed forward supervised network is designed to suit the purpose. The input layers has 27 neurons, taking the 27 extracted features from the previous step. We used 40 neurons in output layer, because it has 40 different output as shown in \ref{table:OutputTypes}. In the hidden layer we have 180 neurons connecting input and output layers (including bias). Figure \ref{fig:PerceptronModel} shows the network design.
 
 \begin{table}
 \centering
@@ -20,6 +20,14 @@ Metropolitan and district words  & 23 \\
 \hline
 \end{tabular}
 \end{table}
+
+\begin{figure}[]
+     \centering
+     \includegraphics[width=0.8\linewidth]{./img/plots/neural}
+     \caption{Design of the Neural Network}
+     \label{fig:PerceptronModel}
+\end{figure}
+
 
 
 \subsection{Training Process}
