@@ -1,4 +1,65 @@
 \subsection{Clean Plates}
-After extracting plates the plates are converted into binary. This process has no failures. However the cleaning part has some critical cases. When the text is too close border, a portion of it gets erased. Also, sometimes if noise density and size large it is assumed to be a character and does not get erased. All such cases are shown in Figure 
+After extracting plates the plates are converted into binary. This process has no failures. However the cleaning part has some critical cases. When the text is too close border, a portion of it gets erased. Also, sometimes if noise density and size large it is assumed to be a character and does not get erased. All such cases are shown in Figure \ref{fig:Cleaning1}, \ref{fig:Cleaning2}, and \ref{fig:Cleaning3}.
 
+
+\begin{figure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.14/01-00-good}
+    \caption{Binary image}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.15/01-00-good}
+    \caption{Removed Borders}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.16/01-00-good}
+    \caption{Final image}
+\end{subfigure}
+\caption{Result of good cleaning}
+\label{fig:Cleaning1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.14/01-00-private2}
+    \caption{Binary image}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.15/01-00-private2}
+    \caption{Removed Borders}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.16/01-00-private2}
+    \caption{Final image}
+\end{subfigure}
+\caption{Result of bad cleaning}
+\label{fig:Cleaning2}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.14/00-00-good3}
+    \caption{Binary image}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.15/00-00-good3}
+    \caption{Removed Borders}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.16/00-00-good3}
+    \caption{Final image}
+\end{subfigure}
+\caption{Cleaning an skewed plate}
+\label{fig:Cleaning3}
+\end{figure}
 
