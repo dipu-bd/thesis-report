@@ -15,7 +15,7 @@ pdflatex main.tex
 
 ### Researchers
 **Sudipto Chandra Das**
-- Reg. No.: 2012331059
+- Reg. No.: 2012331019
 - Session: 2012-13, CSE, SUST
 - 
 **Md. Al-amin Nowshad**
