@@ -2,19 +2,17 @@
 
 The accuracy of license plate recognition system can be described in three parts - license plate detection, character recogntion, overall accuracy. The table below gives an overview related to accuracy -
 
-
-
 \begin{table}[]
-\centering
-\begin{tabular}{|l|l|l|l|l|}
-\hline
- Author & Detection & Recognition & Overall \\ \hline
- Waterhouse (2006)  & 96\% & 86\% \& 96\%  &   \\ \hline
- &  &  &  &  \\ \hline
- &  &  &  &  \\ \hline
-\end{tabular}
-\caption{My caption}
-\label{my-label}
+	\centering
+	\caption{Mapping Comparison While 5\% Error Added in Read Data}
+	\label{tab:error5}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\begin{tabular}[c]{@{}c@{}}Name of the\\ Tool\end{tabular} & \begin{tabular}[c]{@{}c@{}}Right Position\\ (\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}Wrong Position\\ (\%)\end{tabular} \\ \hline
+		BWA-MEM & 88.4 & 11.6 \\ \hline
+		NanoBLAST & 86.55 & 13.45 \\ \hline
+		NanoMapper & 97.42 & 2.58 \\ \hline
+	\end{tabular}
 \end{table}
 
 \section{Summary}

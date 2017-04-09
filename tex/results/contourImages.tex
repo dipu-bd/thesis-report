@@ -1,0 +1,19 @@
+\subsection{Contour Analysis}
+The detection of contours vastly depended on the quality of edges detected by Canny edge detection algorithm. The contours can detect rotation, but we did not include the skew calculation. Rotation value fails in cases when the border of plate is not detected well or is out of the boundary of located plate region.
+
+Figure \ref{fig:ContourResult1}, and \ref{fig:ContourResult2} shows two detected contour regions in each image. Contours are marked with a line of 2 pixels of black border upon 3 pixels of white border line.
+
+\begin{figure}
+\centering
+\includegraphics{./img/experiment/stage.12/00-good}    
+\caption{Two detected contours of a good sample}
+\label{fig:ContourResult1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{./img/experiment/stage.12/00-private2}
+\caption{Detected contours of a private plate}
+\label{fig:ContourResult2}
+\end{figure}
+

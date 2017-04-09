@@ -19,20 +19,15 @@ This stage ends up generating a bunch of predicted license plate images. We shal
 \section{Plate Detection}
 It takes every predicted plates and keeps only the text part of the plates. It also removes plates that can not be a possible plate.
 
-  \subsection{Canny Edge Algorithm}
+  \input{./tex/results/cannyImages}
+  \input{./tex/results/contourImages}
+  \input{./tex/results/extractedPlates}
+  \input{./tex/results/binaryImages}
+  \input{./tex/results/cleanPlates}
   
-  \subsection{Detected contours}
-  
-  \subsection{Extracted plates} 
-  
-  \subsection{Binary image conversion} 
-  
-  \subsection{Cleaning plate} 
 
-
-\section{Segmentation}
-Horizontal and vertical project are not perfect for skewed and angled plates. It also fails in case there are induced noise on license plate. Also if two characters overlaps each other in vertical direction (which is very common in bangla text) it also fails. Figure ASKLDHHL shows some successful segmentation while for Figure ALKSH and ASLKD the segmentation fails in some way. For Figure AL:WKDJ segmentation fails completely.
-
+\section{Segmentation}  
+\input{./tex/results/segmentation}
 
 
 \section{Character Recognition}
