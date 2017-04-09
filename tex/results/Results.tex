@@ -3,7 +3,39 @@
 
 \begin{document}
 \chapter{Experiment and Results}
-Our experiment process and the results will be shown in this chapter. We shall describe our results of every significant stages in separate sections. Some insignificant steps, like- Rescaling, Grayscale conversion etc. will not be included.  We shall display samples of different types of number plates, depending on the light and noise conditions.
+Our experiment process and the results will be shown in this chapter. We shall display our result for every significant stages in separate sections along with different types of samples.
 
+
+\section{Preprocessing Stage}
+This stage ends up generating a bunch of predicted license plate images. We shall show our output for some significant steps.
+  
+  \input{./tex/results/edgeDensity}
+  \input{./tex/results/gaussFilter}
+  \input{./tex/results/enhancedImage}
+  \input{./tex/results/matchedFilter}
+  \input{./tex/results/estimatedPlates}
+
+
+\section{Plate Detection}
+It takes every predicted plates and keeps only the text part of the plates. It also removes plates that can not be a possible plate.
+
+  \subsection{Canny Edge Algorithm}
+  
+  \subsection{Detected contours}
+  
+  \subsection{Extracted plates} 
+  
+  \subsection{Binary image conversion} 
+  
+  \subsection{Cleaning plate} 
+
+
+\section{Segmentation}
+Horizontal and vertical project are not perfect for skewed and angled plates. It also fails in case there are induced noise on license plate. Also if two characters overlaps each other in vertical direction (which is very common in bangla text) it also fails. Figure ASKLDHHL shows some successful segmentation while for Figure ALKSH and ASLKD the segmentation fails in some way. For Figure AL:WKDJ segmentation fails completely.
+
+
+
+\section{Character Recognition}
+The character recognition is done by neural network which is highly depended on training dataset. Unfortunately, we did not have enough dataset to train our neural network well to be able to produce any significant results. Our future goal includes this part of collecting dataset, and training and testing the neural network we implemented.
 
 \end{document}

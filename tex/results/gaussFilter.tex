@@ -1,0 +1,47 @@
+\subsection{Gaussian Filter on Edge Image}
+The gaussian filter blurs the image. We observed that our filter blurs all of license plates on good samples, and only text portions on large samples. Figure \ref{fig:GaussianResult1}, \ref{fig:GaussianResult2} and \ref{fig:GaussianResult3} demonstrate result of this filter.
+
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.2/good3}
+    \caption{Original image}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.4/good3}
+    \caption{Blurry image}
+\end{subfigure}
+\caption{Gaussian filter on good plate}
+\label{fig:GaussianResult1}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.2/angle3}
+    \caption{Original image}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.4/angle3}
+    \caption{Blurry image}
+\end{subfigure}
+\caption{Gaussian filter on big plate}
+\label{fig:GaussianResult2}
+\end{figure}
+
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.2/small}
+    \caption{Original image}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.4/small}
+    \caption{Blurry image}
+\end{subfigure}
+\caption{Gaussian filter on small plate}
+\label{fig:GaussianResult3}
+\end{figure}
