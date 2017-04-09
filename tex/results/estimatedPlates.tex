@@ -1,1 +1,62 @@
 \subsection{Estimated plate regions}
+Plate estimation is depended on the image found after applying matched filter. Bad plate images does not get enhanced well. Consequently it fails to have a good match on license plate regions and fails to locate exact positions of the plates. Good and bad results of this step is shown in Figure \ref{fig:Estimate1}, and \ref{fig:Estimate2}.
+
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.2/good}
+    \caption{Original image}
+\end{subfigure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/00-good}
+    \caption{The only estimated plate region}
+\end{subfigure}
+\caption{A good example of plate estimation}
+\label{fig:Estimate1}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.2/private}
+    \caption{Original image}
+\end{subfigure}
+\begin{subfigure}{0.24\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/00-private}
+    \\ \vspace{0.3cm}
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/02-private}
+\end{subfigure}
+\begin{subfigure}{0.24\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/01-private}
+    \\ \vspace{0.3cm}
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/03-private}
+\end{subfigure}
+\caption{Plate with lots of estimation}
+\label{fig:Estimate2}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.2/small}
+    \caption{Original image}
+\end{subfigure}
+\begin{subfigure}{0.24\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/00-small}
+    \vspace{0.3cm}
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/02-small}
+\end{subfigure}
+\begin{subfigure}{0.24\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.8/01-small}
+\end{subfigure}
+\caption{Bad estimations}
+\label{fig:Estimate2}
+\end{figure}
+
