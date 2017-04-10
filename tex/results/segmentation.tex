@@ -1,1 +1,78 @@
-Horizontal and vertical project are not perfect for skewed and angled plates. It also fails in case there are induced noise on license plate. Also if two characters overlaps each other in vertical direction (which is very common in bangla text) it also fails. Figure ASKLDHHL shows some successful segmentation while for Figure ALKSH and ASLKD the segmentation fails in some way. For Figure AL:WKDJ segmentation fails completely.
+Horizontal and vertical project are not perfect for skewed and angled plates. It also fails in case there are induced noise on license plate. Also if two characters overlaps each other in vertical direction (which is very common in bangla text) it also fails. Figure \ref{fig:SegmentResult1} shows an example of successful segmentation. When two characters overlaps the segmentation fails. An example is shown in Figure \ref{fig:OverlappingChar}. Also, non-standard plate like Figure \ref{fig:NonStandardPlates}.
+
+
+\begin{figure}
+\begin{subfigure}{\textwidth}
+    \centering
+    \includegraphics[width=0.5\linewidth]{./img/experiment/stage.16/01-00-good}
+    \caption{Original Plate}
+\end{subfigure}
+\begin{subfigure}{0.15\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/00-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.15\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/01-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/02-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/03-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/04-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/05-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/06-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/07-01-00-good}
+\end{subfigure}
+\begin{subfigure}{0.09\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/08-01-00-good}
+\end{subfigure}
+\caption{Segmented characters from a plate}
+\label{fig:SegmentResult1}
+\end{figure}
+
+
+\begin{figure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/06-00-00-badfont}
+    \caption{Bad font}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/07-01-00-private2}
+    \caption{Skewed}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{./img/experiment/stage.17/06-01-02-private}
+    \caption{Non-standard font}
+\end{subfigure}
+\caption{Segmentation failed due to overlapping characters}
+\label{fig:OverlappingChar}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\linewidth]{./img/experiment/stage.16/01-00-nostd}    
+\caption{Segmentation fails for non-standard plates}
+\label{fig:NonStandardPlates}
+\end{figure}
+
