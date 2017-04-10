@@ -1,0 +1,26 @@
+Number plate detection and recognition is a long process comprising of several critical steps. So, there are numerous cases where our algorithm will fail for various reasons.
+
+\begin{itemize}
+    \item The quality of the input image.
+    \item The environment and surroundings of the vehicle, e.g: sign boards, bill boards, name plates, banners, tree branches etc may cause problems in detection.
+    \item Non-standard use of style and fonts.
+\end{itemize}
+
+
+\subsection{Good and bad quality images}
+Input image quality is the most important aspect of successful recognition. Most cases of failures occurs due to poor quality input image. Some of the bad qualities that should not be present in input image are listed below.
+
+\begin{itemize}
+    \item Resolution of the image may be poor and the character or plate margin is not distinguishable.
+    \item If image size or dimension is small, the license plate may not have enough compositions or pixels in it to be detected or recognized correctly.
+    \item Non-standard use of fonts is very good reason of failure.
+    \item Muddy or erased characters are major problem.
+    \item Often bumper placement hides the license plate partially or completely.
+    \item If the input image is taken in a way that the plate and characters are highly angled or skewed, the detection will fail.
+    \item The reflection of light on license plate makes some text indistinguishable.
+    \item High contrast and noise on the body of the car prevents good enhancement of plate like regions.
+    \item Shadow on plate often transforms into dark pixels when applying threshold.
+    \item Overlapping characters causes problem during segmentation.
+    \item The amount of threshold to apply in each image varies. It is hard to set a good enough threshold for every image. As a result the image is left too noisy and characters ruined.
+\end{itemize}
+

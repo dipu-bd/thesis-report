@@ -1,14 +1,9 @@
-\documentclass{standalone}
-\usepackage{standalone}
-
-\begin{document}
 \chapter{Experiment and Results}
 Our experiment process and the results will be shown in this chapter. We shall display our result for every significant stages in separate sections along with different types of samples.
 
 
-\section{Preprocessing Stage}
+\section{Plate Detection}
 This stage ends up generating a bunch of predicted license plate images. We shall show our output for some significant steps.
-  
   \input{./tex/results/edgeDensity}
   \input{./tex/results/gaussFilter}
   \input{./tex/results/enhancedImage}
@@ -16,24 +11,32 @@ This stage ends up generating a bunch of predicted license plate images. We shal
   \input{./tex/results/estimatedPlates}
 
 
-\section{Plate Detection}
+\section{Plate Extraction}
 It takes every predicted plates and keeps only the text part of the plates. It also removes plates that can not be a possible plate.
-
   \input{./tex/results/cannyImages}
   \input{./tex/results/contourImages}
   \input{./tex/results/extractedPlates}
   \input{./tex/results/cleanPlates}
-  
 
-\section{Segmentation}  
+
+\section{Character Segmentation}  
 \input{./tex/results/segmentation}
 
-
-\section{Character Recognition}
-The character recognition is done by neural network which is highly depended on training dataset. Unfortunately, we did not have enough dataset to train our neural network well to be able to produce any significant results. Our future goal includes this part of collecting dataset, and training and testing the neural network we implemented.
-
-
 \section{Efficiency Measurements}
-\input{./tex/results/efficiency}
+This section describes our process of measuring efficiency (runtime) of different steps of our system.
+  \input{./tex/results/system_specs}
+  \input{./tex/results/measurement_process}
+  \input{./tex/results/runtime_measures}
 
-\end{document}
+\section{Accuracy}
+\input{./tex/results/accuracy}
+
+\section{Comparison}
+\input{./tex/results/comparison}
+
+\section{Cases of failures}
+\input{./tex/results/failures}
+
+\section{Summary}
+\input{./tex/results/summary}
+

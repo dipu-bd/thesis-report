@@ -4,68 +4,65 @@
 
 \begin{document}
 
+% -------------------------------------------------------------------------
+% Front pages
+% -------------------------------------------------------------------------
+
 \pagestyle{empty}
 \pagenumbering{alph}
-\input{./tex/frontpages}
+
+\input{./tex/front/Titlepages}
+\clearpage
+
 \pagestyle{plain}
-
-\clearpage
 \pagenumbering{Roman}
+
 \addcontentsline{toc}{section}{Abstract}
-\input{./tex/abstract}
-
+\input{./tex/Abstract}
 \clearpage
+
 \addcontentsline{toc}{section}{Acknowledgement}
-\input{./tex/acknowledgements}
-
+\input{./tex/front/Acknowledgements}
 \clearpage
+
 \addcontentsline{toc}{section}{Dedication}
-\input{./tex/dedication}
-
+\input{./tex/front/Dedication}
 \clearpage
+
+% -------------------------------------------------------------------------
+% List of Contents
+% -------------------------------------------------------------------------
+
 \addcontentsline{toc}{section}{Table of Contents}
 \tableofcontents
-
 \clearpage
+
 \addcontentsline{toc}{section}{\listtablename}
 \listoftables
-
 \clearpage
+
 \addcontentsline{toc}{section}{\listfigurename}
 \listoffigures
-
-
-\clearpage
-This is a citation example\: \cite{AEBCAM_LPD}. Very easy.
 \clearpage
 
-
-\clearpage
+% -------------------------------------------------------------------------
+% Main Contents 
+% -------------------------------------------------------------------------
 \pagenumbering{arabic}
-\input{./tex/introduction} 		% includes background
 
-\input{./tex/background_study} 	% includes intro of literature review
-\input{./tex/sample}
-\input{./tex/related_works}
-\input{./tex/preprocessing}
-\input{./tex/feature_analysis}
-\input{./tex/region_analysis}
-\input{./tex/character_segmentation}
-\input{./tex/character_recognition}
-\input{./tex/comparison_and_summary}
-
-
+\input{./tex/intro/introduction} 		
+\input{./tex/review/background_study} 	
 \input{./tex/methods/Methodology}
-\input{./tex/DataSets}
+\input{./tex/results/DataSets}
 \input{./tex/results/Results}
-
-%\input{./tex/appendixA}
-
-%\input{./tex/comparison}
-%\input{./tex/conclusion}
-%\input{./tex/future_work}
+\input{./tex/conclusion/Conclusion}
 
 \clearpage
+
+% -------------------------------------------------------------------------
+% The End of the World
+% -------------------------------------------------------------------------
+
 \renewcommand\bibname{References}
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,references}

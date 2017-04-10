@@ -1,0 +1,20 @@
+
+\subsection{Measurement Process}
+We executed each operation by wrapping it to a function called {\it execute\_module} which measures the total runtime using OpenCV's clock with high precision. Runtime for all steps are then averaged for each images and the mean total runtime is calculated from the average runtime for each image (Equation \ref{eq:MeanTotal}).
+
+\begin{equation}\label{eq:MeanTotal}
+mean = \sum^{total\_steps}_{i=1}{average_i}
+\end{equation}
+\begin{equation}
+average_i = \sum^{| images |}_{i=1}{execute\_module([arguments])}
+\end{equation}
+
+\begin{lstlisting}[language=Python]
+def execute_module(method, *args):
+    start = cv2.getTickCount()
+    result = method(*args)
+    time = cv2.getTickCount() - start
+    time /= cv2.getTickFrequency()
+    return result, time
+# end function
+\end{lstlisting}
