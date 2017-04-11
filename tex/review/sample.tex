@@ -1,7 +1,62 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+
 \section{Standard Bangla license plate}
 \subsection{Vehicle types}
-Vehicles are of different types in Bangladesh. As a result license plates don't stay at the same place for each vehicle.
-Vehicles considered in this thesis work are - private car, bus, cng auto-rickshaw, truck. Though there were no previous format and standardization of the license plate in the past, currently government has enforced digital license plate for all vehicles which makes it a new case to handle and less error prone than the previous systems.
+Vehicles are of different types in Bangladesh. As a result license plates don't stay at the same place for each vehicle. Vehicles considered in this thesis work are - private car, bus, cng auto-rickshaw, truck. Though there were no previous format and standardization of the license plate in the past, currently government has enforced digital license plate for all vehicles which makes it a new case to handle and less error prone than the previous systems.
+
+  
+\begin{table}[hb]
+	\centering
+	\label{tab:error5}
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Serial}
+		& \multicolumn{1}{|c|}{Identifier}
+		& \multicolumn{1}{|c|}{Begin Number} 
+		& \multicolumn{1}{|c|}{End Number}
+		& \multicolumn{1}{|c|}{Type} \\ 
+		\hline
+		    
+		1  & MA  & 51 & 99 & Delivery van/truck \\ \hline
+		2  & THA & 11 & 99 & Pick up/van \\ \hline
+		3  & CAA & 11 & 99 & Ambulance/Mobile dispensary \\ \hline
+		4  & U	 & 11 & 99 &	Cargo truck \\ \hline
+		5  & TA	 & 11 & 99 & Heavy truck \\ \hline
+		6  & GA  & 11 & 99 & Motor Car \\ \hline
+		7  & RA	 & 11 & 99 & President's office car \\ \hline
+		8  & ZA	 & 11 & 99 & Pm’s office (Any vehicle) \\ \hline
+		9  & DHA & 61 & 80 & Articulated truck \\ \hline
+		10 & CHA & 11 & 50 & Microbus \\ \hline
+		11 & PA	 & 11 & 99 & Taxi Cab \\ \hline
+		
+	\end{tabular}
+	\caption{Vehicles Class:BRTA \cite{brta}}
+\end{table}
+
+\par
+
+License plates also have different colors based on vehicle class -
+\begin{table}[hb]
+	\centering
+	\label{tab:error5}
+	\begin{tabular}{|l|c|c|c|}
+		\hline
+		\multicolumn{1}{|c|}{Vehicle Category}
+		& \multicolumn{1}{|c|}{Plate Color}
+		& \multicolumn{1}{|c|}{Character Color} \\ 
+		\hline
+		    
+		Private     & Black & White \\ \hline
+		Commercial  & White & Black \\ \hline
+		
+	\end{tabular}
+	\caption{Plate color and class}
+\end{table}
+
+
 
 \subsection{Structure of the plate}
 The digital Bengali license plate is normally written in two lines.
@@ -16,7 +71,7 @@ The digital Bengali license plate is normally written in two lines.
 \par
 As the example given the line on the top written in Bangla and the bottom line has all digits in Bangla.    
 
-\subsection{Parts of plate number}
+\subsection{Parts of plate number}[h]
 The top line got two parts. First part before the '-' denotes the city of the car license and then the second part denotes the series it is in.
 
 The bottom line is the number of the license assigned to the particular vehicle by the licensing rules and regulation of Bangladesh Road Transport Authority.
@@ -34,3 +89,4 @@ The bottom line is the number of the license assigned to the particular vehicle 
     \end{figure} 
 \subsection{Plate fonts}
 Digital license plate is offering verified fonts, but in Bangladesh those rules are not strictly followed by all vehicle owners. Also the current dataset doesn't have any universal font. So, the fonts can be different but easily understandable for this thesis work.
+\end{document}
