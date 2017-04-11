@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+\chapter{Conclusions}
+This chapter gives an overview of how close we are to fulfill our objectives, and our hardship against the challenges that were very hard to overcome.
+
+\section{Statement}
+We set our goal to implement a system with high accuracy and efficiency. From the comparison and result analysis we have surely managed to get a high score in plate localization. But our plate extraction module does not work very well. The primary reason for this is our input dataset. As can be seen by the statistics from Table \ref{table:Variety}, there are lots of variety in the input images. In some of the images, it is very hard to detect and read the characters of the plates even by a human. If we exclude the low resolution and impossible input images, our system works fairly well even for the license plate that were angled or skewed.
+
+\section{Future Work}
+As we worked through the implementation up to character segmentation, our next goal is to implement a complete system that will recognize the license plate characters given any input image. We could ascertain several other approaches to solve our shortcomings in this research, which we shall test out carefully and select the best method to improve the accuracy of our system.
+
+In future, the Optical character recognition is going to be the most challenging part. It is a big field and there exists only handful of research on this topic for Bangla language. Among which none are promising enough to provide high performance in terms of accuracy and efficiency. Another way that is in our consideration is using Google's Tesseract OCR, which is open-source and well-maintained. But, it requires collecting a good training dataset.
+
+\end{document}

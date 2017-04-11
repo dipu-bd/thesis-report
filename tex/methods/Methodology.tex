@@ -9,7 +9,7 @@ This chapter describes our process to detect license plate given an input image,
   \input{./tex/methods/implementation}
   \input{./tex/methods/overview}
 
-\section{Preprocessing}
+\section{Plate Localization}
 This stage contains a sequence of steps that enhance the plate like regions of an image and output an image that can be used directly for the next stage - plate detection.
 
   \input{./tex/methods/rescaling}
@@ -20,8 +20,8 @@ This stage contains a sequence of steps that enhance the plate like regions of a
   \input{./tex/methods/matchedFilter}
   \input{./tex/methods/locatePlate}
 
-\section{Plate Detection}
-This section describes the procedure to localize the license plate using the outputs from preprocessing stage. 
+\section{Plate Extraction}
+This section describes the procedure to extract the license plate using the outputs from preprocessing stage. 
   \input{./tex/methods/cannyEdges}
   \input{./tex/methods/contourAnalysis}
   \input{./tex/methods/extraction}
@@ -32,7 +32,7 @@ This section describes the procedure to localize the license plate using the out
 
 
 \section{Character Recognition}
-The character recognition is the final and most crucial part of the automated system. We decided to go with a straight-forward approach to implement a Multi-Layer Perceptron model to recognize characters. An MLP or Multi-Layer Perceptron is a Neural Network model that has only three layers. The input layer, one hidden layer and one output layer.
+The character recognition is the final and most crucial part of the automated system. Although we did not implement a system for recognition, we used tested various method and by following up \cite{joarder2012bangla}, we formulated simple feature extraction which will be useful in our future work. Although we did not implement it, but we provided our design and plan to implement a multilayer feed-forward neural network for character recognition.
 
   \input{./tex/methods/featureExtraction}
   \input{./tex/methods/neuralNet}

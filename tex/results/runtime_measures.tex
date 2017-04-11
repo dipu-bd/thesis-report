@@ -1,6 +1,6 @@
 
 \subsection{Runtime measurements}
-Our average runtime of the overall process is $1.178$ seconds. Table \ref{table:Runtimes} shows runtime required on different steps. Note that, these runtime are averaged total of all images.
+Our average runtime of the overall process is around $1$ second. Table \ref{table:Runtimes} shows runtime required on different steps. Note that, these runtime are averaged total of all images.
 
 
 \begin{table}[!htb]
@@ -11,30 +11,30 @@ Our average runtime of the overall process is $1.178$ seconds. Table \ref{table:
 \hline
 \multicolumn{2}{|c|}{\bf Module}  & {\bf Runtime (seconds)} \\
 \hline
-\multicolumn{2}{|l|}{\it Plate Detection} & {\bf 1.020} \\ 
+\multicolumn{2}{|l|}{\it Plate Detection} & {\bf 0.841} \\ 
 \hline
-Stage 1 & Rescaling & $0.056$ \\
-Stage 2 & Grayscale conversion & $0.062$ \\
+Stage 1 & Rescaling & $0.047$ \\
+Stage 2 & Grayscale conversion & $0.050$ \\
 Stage 3 & Vertical Sobel filter & $0.014$ \\
-Stage 4 & Gaussian Blur & $0.078$ \\
-Stage 5 & Enhancement & $0.591$ \\
-Stage 6 & Matched filter & $0.208$ \\
-Stage 7 & Locate regions & $0.011$ \\
+Stage 4 & Gaussian Blur & $0.072$ \\
+Stage 5 & Enhancement & $0.509$ \\
+Stage 6 & Matched filter & $0.146$ \\
+Stage 7 & Locate regions & $0.003$ \\
 \hline
-\multicolumn{2}{|l|}{\it Plate extraction} & {\bf 0.149} \\ 
+\multicolumn{2}{|l|}{\it Plate extraction} & {\bf 0.132} \\ 
 \hline
-Stage 8 & Extract estimation & $0.041$ \\ 
+Stage 8 & Extract estimation & $0.035$ \\ 
 Stage 9 & Apply threshold & $0.001$ \\ 
-Stage 10 & Canny edge detection algorithm & $0.003$  \\ 
-Stage 12 & Contour analysis & $0.026$ \\ 
+Stage 10 & Canny edge detection algorithm & $0.001$  \\ 
+Stage 12 & Contour analysis & $0.020$ \\ 
 Stage 13 & Extracting plate & $0.002$ \\ 
-Stage 14 & Binary image conversion & $0.001$ \\ 
-Stage 15 & Border removal & $0.071$ \\ 
+Stage 14 & Binary image conversion & $0.002$ \\ 
+Stage 15 & Border removal & $0.067$ \\ 
 Stage 16 & Contour de-noising & $0.004$ \\
 \hline
 \multicolumn{2}{|l|}{\it Character segmentation} & {\bf 0.009} \\ 
 \hline
-\multicolumn{2}{|l|}{\bf Average total} & {\bf 1.178} \\ 
+\multicolumn{2}{|l|}{\bf Average total} & {\bf 0.982} \\ 
 \hline
 \end{tabular}
 \end{table} 

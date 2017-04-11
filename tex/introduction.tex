@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{standalone}
+
+\begin{document}
+\chapter{Introduction}
+In the field of Image processing and computer vision license plate recognition is an well established title. It is an absolute necessity to create an automatic number plate recognition system for many important reasons like- security maintenance, traffic control, automatic parking management etc. In Bangladesh, there are only a handful of research on this topic, which promised a good accuracy and runtime, but an well-established system is yet to be implemented.
+
+An Automated License Plate Recognition(ALPR) system can be divided into several submodules- Plate localization, Plate Extraction, Character Segmentation, and Character Recognition. {\it Plate localization} takes any type of input image, and outputs the region information of the license plate if available. {\it Plate extraction} aims to extract and clean the license plate localized by the previous submodule. {\it Character Segmentation} takes the clean plate and separate each characters into separate image. Finally, the {\it Character Recognition} module recognizes the character given the input image of a character. 
+
+
+
+\section{Objectives}
+Our objective is to find out a way to implement the ALPR system for Bangla license plates, which not only promise high accuracy, but is also an efficient and universal method. In this thesis, our aim is to process the input image up to {\it Character Segmentation} so that it is easy to recognize the character by sending it to any existing Optical Character Recognition (OCR) system.
+
+
+
+\section{Challenges}
+There are many challenges to consider during this research. For example-
+
+\begin{enumerate}
+	\item Reviewing and finding the deficiency of previous systems.
+	\item Finding a way to implement and test multiple systems.
+    \item Building a large dataset of license plate images.
+    \item Sorting out the dataset by identifying different types and class.
+    \item Measuring the performance and accuracy of our implemented system and how to compare our system to other systems.
+\end{enumerate}
+    
+    
+    
+    
+\section{Motivation}
+As there is no established system for license plate detection in Bangladesh, our main motivation is to implement such system that will be properly usable, as well as complete. This system will greatly help in establishing traffic order in Bangladesh, and provide a strong foundation to successfully apply the laws. Also the system can be commercialized to the parking lot industries in Bangladesh. 
+
+
+
+
+\section{Approaches}
+There are many ALPR system commercially available which is not only very costly but there is no support for Bangla license plates. So our primary approach is to reduce the cost and implement our system using open-source libraries like- Python, OpenCV, and Tesseract.
+
+Before we can implement a successful system we need to test out several other existing system and methods. For this purpose we organized our implementation in a convenient way consisting of independent stages for each steps. In our implementation, the Plate detection modules needed 7 stages, plate extraction 9 stages, and the character segmentation had 2 stages.
+
+In the license plate detection, we combined our implementation following up several other research papers that promises good results. It took lots of our time to configure the variables to an optimum value which will perfect enough to detect license plates. As a result, we could achieve a very high accuracy in plate localization.
+
+The next part is license plate extraction, which has been the most challenging part of the entire process. We tested several traditional techniques and some experimental methods to test and compare among themselves. 
+
+We inherited most of the procedures from \cite{Abolghasemi2009}, \cite{zheng2005efficient}, and \cite{joarder2012bangla}. Our approaches shall be described in the {\it Methodology} section in details. 
+
+
+\section{Thesis Structure}
+We separated this report into three major parts-
+\begin{enumerate}
+    \item The {\it background study} that reviews all of our predecessors work, their approaches and solutions.    
+    \item {\it Methodology} that describes our methods briefly but precisely, including necessary figures and algorithms and code-snippets.
+    \item The {\it experiment and result} section analyses our findings during this thesis as well as a comparison between existing systems with out implementation.
+\end{enumerate}
+
+
+
+\end{document}
