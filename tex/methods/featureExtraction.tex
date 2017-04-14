@@ -8,7 +8,7 @@
 We have extracted 27 most basic features that shall help us to identify a character. We For each segmented characters we extracted same amount of features and passed it to the input of neural network for classification. Our selecting of feature effectively reduced the number of computations and made the system more efficient. We shall describe our approach to extract features here in brief.
 
 \subsection{Converting to Normalized image}
-First we convert the image into normalized binary image, which has only two values- 1 for on-character pixels, and 0 for background pixels.
+First, the image is converted into normalized binary image, which has only two values- 1 for on-character pixels, and 0 for background pixels.
 
 \subsubsection{Feature 1 and 2}
 There is a function in {\it numpy} library called {\it count\_nonzero} that counts the non-black pixels of the image. We used it to count the total non-black pixels of the initial image. This is our second feature.

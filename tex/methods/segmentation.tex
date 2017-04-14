@@ -2,8 +2,8 @@
 \usepackage{standalone}
 
 \begin{document}
-\section{Segmentation}
-The goal of this stage is to separate all characters into different image to send them to OCR for recognition. We used horizontal and vertical projections in this step.
+\section{Character Segmentation}
+The goal of this stage is to separate all characters into different image to send them to OCR for recognition. We used horizontal and vertical projections in this step \cite{joarder2012bangla}.
 
 
 \subsection{Horizontal Segmentation}
@@ -24,7 +24,7 @@ Horizontal projection is done my taking mean of all columns across the rows of t
 \label{fig:HorizontalProjection}
 \end{figure}
 
- To calculate this mean we followed the formula from Algorithm \ref{eq:HorizontalProjection}. We set the cutoff line to be $\geq 1$. and separated the entire plate into two segments. 
+To calculate this mean we followed the formula from Algorithm \ref{eq:HorizontalProjection}. We set the cutoff line to be $\geq 1$. and separated the entire plate into two segments. 
 \begin{algorithm}
   \begin{algorithmic}
     \For{\texttt{i:=1 to height}}
@@ -67,7 +67,7 @@ The result of the projection is shown in Figure \ref{fig:VerticalProjection}.
 \end{figure}
 
 
-As a result of this segmentation process we could successfully split all characters from the image. Some samples are shown in Figure \ref{fig:SegmentedSamples}.
+Some successfully segmented characters using this method from an clean license plate are shown in Figure \ref{fig:SegmentedSamples}.
 \begin{figure}
 \centering
 \begin{subfigure}{0.40\textwidth}
