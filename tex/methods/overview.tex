@@ -15,9 +15,9 @@ We separate our process into several stages. Each stages contains several steps 
 
 \begin{description}
 \item [Input Image] is a 24-bit colored image with red, green and blue channels.
-\item [Preprocessing] stage applies several operations on input image to convert it into an image suitable for feature analysis for later stages. In our case, it also outputs general location of the plate.
-\item [Plate Detection] analyses all plate like locations, and extract plates from them. Also it cleans the plate for segmentation.
-\item [Segmentation] step is for splitting the characters from the plate. It is done so that the characters can be recognized by the OCR.
+\item [Plate Detection] stage applies several operations on input image to convert it into an image suitable for feature analysis for later stages. In our case, it also outputs possible locations of the plate and reduces the search space.
+\item [Plate Extraction] analyses all plate like locations from previous step,  extracts, fixes rotation and cleans the plate for next module.
+\item [Character Segmentation] step is for splitting the characters from the plate. It is done so that the characters can be recognized by the OCR.
 \item [Character Recognition] uses an OCR system to recognize individual characters and text images.
 \end{description}
 

@@ -6,11 +6,11 @@
 \subsection{Extraction}
 The region information we get from the previous step is used here to extract the plate image from the original image. We also rotate the image to match with the rotation angle found in previous step. This rotation is done by calculating a rotation matrix of scale $1$ using a OpenCV function:
 \begin{lstlisting}[language=Python]
-# Calculating rotation matrix M
+# rotation matrix M
 M = cv2.getRotationMatrix2D((center_y, center_x), rotation, 1.0)
 \end{lstlisting}
 
-The variable $rotation$ here is calculated from the $minAreaRect$'s $angle$ using Equation \ref{eq:ExtractionAngle}.
+The variable {\it rotation} here is calculated from the $minAreaRect$'s $angle$ using Equation \ref{eq:ExtractionAngle}.
 \begin{equation} \label{eq:ExtractionAngle}
 rotation = 
 \begin{cases} 

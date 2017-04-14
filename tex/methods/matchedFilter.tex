@@ -4,7 +4,7 @@
 \begin{document}
 
 \subsection{Matched Filter}
-To detect the license plate, next step is to highlight plate like regions from the enhanced image. We used a mixture of Gaussian functions to emphasize the constancy of intensity values within plate-like regions along horizontal direction. Equation \ref{eq:MixtureModel} shows the mathematical model of this function. This function can properly model low edge densities above, below and at the middle of the car plate. 
+To detect the license plate, next step is to highlight plate like regions from the enhanced image. We used a mixture of Gaussian functions that emphasize the constancy of intensity along the horizontal direction of within the plate-like regions \cite{joarder2012bangla}. Equation \ref{eq:MixtureModel} shows the mathematical model of this function. This function can properly model low edge densities above, below and at the middle of the car plate. 
 
 \begin{equation} \label{eq:MixtureModel}
 h(x, y) = 
@@ -38,8 +38,7 @@ h(x, y) =
 
 
 In the Equation \ref{eq:MixtureModel}, 
-$A$ and $B$ are coefficients of the mixture model. These parameters are set empirically following the condition: $A > 0$ and $B < 0$. 
-The symbol $\sigma_x$ is the variance of the main lobe toward x direction. 
+$A$ and $B$ are coefficients of the mixture model. We set these parameters by observation and testing, following the condition: $A > 0$ and $B < 0$. The symbol $\sigma_x$ is the variance of the main lobe toward x direction. 
 Figure \ref{fig:MixtureModelPlot} shows a plot depicting this equation.
 \begin{figure} 
 	\centering
@@ -48,7 +47,7 @@ Figure \ref{fig:MixtureModelPlot} shows a plot depicting this equation.
 	\label{fig:MixtureModelPlot}
 \end{figure}
 
-This filtering process provides a strong response at plate-like regions (Figure \ref{fig:OriginalMixtureModel}). The result is compared against a predefined threshold value, which is around $80\%$ of the maximum intensity. We call this process as smoothing, and the threshold value as {\it smoothing cutoff}.
+This filtering process provides a strong response at plate-like regions \cite{joarder2012bangla}\cite{Abolghasemi2009} (Figure \ref{fig:OriginalMixtureModel}). The result is compared against a threshold value, which is around $80\%$ of the maximum intensity. We call this process as smoothing, and the threshold value as {\it smoothing cutoff}.
 
 \begin{figure}
 \begin{subfigure}{.5\textwidth}

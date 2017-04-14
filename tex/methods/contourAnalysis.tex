@@ -3,7 +3,7 @@
 
 \begin{document}
 \subsection{Contour Analysis}
-Canny edge detection works perfectly for most cases and provides an easy to detect contours around plate borders. After passing the canny image to the OpenCV's $findContours$ function, we get a set of contours. For each of these contours several parameters are checked before selecting a contours as a possible plate.
+Canny edge detection works perfectly for most cases and provides an easy to detect contours around plate borders \cite{alshahrani2013real}. After passing the canny image to the OpenCV's $findContours$ function, we get a set of contours. For each of these contours several parameters are checked according to \cite{alshahrani2013real} before selecting a contours as a possible plate. 
 
 In this steps, some of the estimated candidate from previous stages fall out. In Figure \ref{fig:ContourImage}, all detected contours are highlighted.
 \begin{figure}

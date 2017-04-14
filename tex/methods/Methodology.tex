@@ -10,7 +10,7 @@ This chapter describes our process to detect license plate given an input image,
   \input{./tex/methods/overview}
 
 \section{Plate Localization}
-This stage contains a sequence of steps that enhance the plate like regions of an image and output an image that can be used directly for the next stage - plate detection.
+This stage contains a sequence of steps that enhance the plate like regions of an image and output an image that can be used directly for the next stage - plate detection. Most of the steps here are implemented following \cite{joarder2012bangla}, \cite{Abolghasemi2009} and \cite{zheng2005efficient}.  
 
   \input{./tex/methods/rescaling}
   \input{./tex/methods/grayscale}
@@ -21,7 +21,8 @@ This stage contains a sequence of steps that enhance the plate like regions of a
   \input{./tex/methods/locatePlate}
 
 \section{Plate Extraction}
-This section describes the procedure to extract the license plate using the outputs from preprocessing stage. 
+This section describes the procedure to extract the license plate using the outputs from preprocessing stage. We followed both \cite{joarder2012bangla} and  \cite{alshahrani2013real} and combined some of their method in this module.
+
   \input{./tex/methods/cannyEdges}
   \input{./tex/methods/contourAnalysis}
   \input{./tex/methods/extraction}
@@ -29,7 +30,6 @@ This section describes the procedure to extract the license plate using the outp
   \input{./tex/methods/denoising}
 
 \input{./tex/methods/segmentation}
-
 
 \section{Character Recognition}
 The character recognition is the final and most crucial part of the automated system. Although we did not implement a system for recognition, we used tested various method and by following up \cite{joarder2012bangla}, we formulated simple feature extraction which will be useful in our future work. Although we did not implement it, but we provided our design and plan to implement a multilayer feed-forward neural network for character recognition.
